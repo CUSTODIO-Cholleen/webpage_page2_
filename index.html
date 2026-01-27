@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BLUEBOX.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: whitesmoke;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 15px auto 40px;
+            background: white;
+            padding: 15px 20px 40px;
+            border: 1px solid silver;
+        }
+
+        /* ===== hider/nav ===== */
+        header {
+            border-bottom: 1px solid gray;
+            padding-bottom: 7px;
+            margin-bottom: 10px;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            background: white;
+            border: 1px solid silver;
+            padding: 4px 8px;
+        }
+
+        .top-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 36px;
+            letter-spacing: 2px;
+            font-weight: bold;
+            color: blue;
+            margin-top: 8px;
+        }
+
+        .search-icon {
+            font-size: 18px;
+            margin-right: 6px;
+        }
+
+        /* ===== welkam bar ===== */
+        .welcome-bar {
+            margin-top: 10px;
+            border: 1px solid darkgray;
+            padding: 6px;
+            font-size: 12px;
+            background: white;
+        }
+
+        /* ===== talaan ng contents ===== */
+        .top-wrapper {
+            margin-top: 12px;
+            border: 1px solid lightgray;
+            padding: 8px;
+            background: white;
+        }
+
+        .top-title {
+            display: inline-block;
+            padding: 2px 6px;
+            border: 1px solid lightgray;
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 10px;
+            background: lightgray;
+        }
+
+        .top-content {
+            display: flex;
+            gap: 45px;
+            align-items: flex-start;
+            font-size: 13px;
+        }
+
+        .top-column ul {
+            list-style: none;
+            line-height: 1.7;
+        }
+
+        .top-small-box {
+            border: 1px solid lightgray;
+            padding: 8px 12px;
+            min-width: 200px;
+            background: whitesmoke;
+        }
+
+        .top-small-box h4 {
+            margin-bottom: 4px;
+            font-size: 13px;
+        }
+
+        .top-small-box ul {
+            list-style: none;
+            line-height: 1.7;
+        }
+
+        .top-small-box .sub-title {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        /* ===== hottest/local ===== */
+        .section-row {
+            display: flex;
+            gap: 15px;
+            margin-top: 18px;
+        }
+
+        .box {
+            border: 1px solid lightgray;
+            padding: 8px;
+            flex: 1;
+            background: whitesmoke;
+        }
+
+        .box-title {
+            display: inline-block;
+            padding: 2px 6px;
+            border: 1px solid lightgray;
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 8px;
+            background: white;
+        }
+
+        .poster-row {
+            display: flex;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .poster-column {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .poster {
+            width: 100%;
+            border: 1px solid silver;
+            height: 170px;
+            object-fit: cover;
+            background: lightgray;
+        }
+
+        /* ===== koleksyon ===== */
+        .movie-collections {
+            margin-top: 40px;
+            border-top: 1px solid silver;
+            padding-top: 25px;
+        }
+
+        .movie-collections-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .movie-collections-title span {
+            display: inline-block;
+            border: 1px solid lightgray;
+            padding: 6px 40px;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 20px;
+            background: whitesmoke;
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .movie-card {
+            flex: 1;
+            text-align: left;
+            font-size: 12px;
+        }
+
+        .movie-card img {
+            width: 100%;
+            aspect-ratio: 2 / 3;
+            border: 1px solid silver;
+            object-fit: cover;
+            background: whitesmoke;
+            margin-bottom: 6px;
+        }
+
+        .movie-card h3 {
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .movie-card p {
+            font-style: italic;
+        }
+
+        /* ===== kontak ===== */
+        #contact {
+            margin-top: 40px;
+            border-top: 1px solid whitesmoke;
+            padding-top: 20px;
+        }
+
+        #contact h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        #contact p {
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        #contact form {
+            max-width: 450px;
+            background: lightgray;
+            border: 1px solid silver;
+            padding: 62.5%;
+        }
+
+        #contact label {
+            display: block;
+            font-size: 13px;
+            margin-top: 8px;
+            margin-bottom: 3px;
+        }
+
+        #contact input,
+        #contact textarea {
+            width: 100%;
+            padding: 0.6%;
+            font-size: 13px;
+            border: 1px solid lightgray;
+        }
+
+        #contact button {
+            margin-top: 10px;
+            padding: 37.5% 75%;
+            font-size: 13px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #contact button:hover {
+            background: lightslategray;
+        }
+
+        /* ===== pangrespond ===== */
+        @media (max-width: 900px) {
+            .top-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .section-row {
+                flex-direction: column;
+            }
+
+            .movie-grid {
+                flex-direction: column;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page" id="home">
+        <!-- ===== hider ===== -->
+        <header>
+            <div class="top-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#movies">Movies</a></li>
+                    <li><a href="#contact">Contact Us!</a></li>
+                </ul>
+                <div>
+                    <span class="search-icon">&#128269;</span>
+                </div>
+            </div>
+            <div class="logo"><b><em>BLUEBOX.</em></b></div>
+            <div class="welcome-bar">
+                Welcome! This website features selected movies and films. You can explore posters, summaries, and learn
+                where to watch them. Use the navigation above to explore the site!
+            </div>
+        </header>
+
+        <!-- ===== movies ===== -->
+        <section class="movie-collections" id="movies">
+            <div class="movie-collections-title">
+                <span>MOVIE COLLECTIONS</span>
+            </div>
+
+            <div class="movie-grid">
+                <!-- Card 5 -->
+                <div class="movie-card">
+                    <img src="thunderbolts.jpg" alt="Thunderbolts">
+                    <h3>THUNDERBOLTS*</h3>
+                    <p>"Ensnared in a death trap, an unconventional team of antiheroes -- Yelena Belova, Bucky Barnes,
+                        Red Guardian, Ghost, Taskmaster and John Walker -- embarks on a dangerous mission that forces
+                        them to confront the darkest corners of their pasts."</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="movie-card">
+                    <img src="black bag.jpg" alt="Black Bag">
+                    <h3>Black Bag</h3>
+                    <p>"When his beloved wife, Kathryn, is suspected of betraying the nation, intelligence agent George
+                        Woodhouse faces the ultimate test -- loyalty to his marriage or his country."</p>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="movie-card">
+                    <img src="the naked gun.jpg" alt="The Naked Gun">
+                    <h3>The Naked Gun</h3>
+                    <p>"Lieutenant Frank Drebin Jr becomes a police officer like his legendary father and must save the
+                        police department from shutting down by solving a case."</p>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="movie-card">
+                    <img src="the fantastic four.jpg" alt="The Fantastic Four: First Steps">
+                    <h3>The Fantastic Four: First Steps</h3>
+                    <p>"Mister Fantastic, Invisible Woman, Human Torch and the Thing face their most daunting challenge
+                        yet as they defend Earth from Galactus and Silver Surfer."</p>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="movie-card">
+                    <img src="weapons.jpg" alt="Weapons">
+                    <h3>Weapons</h3>
+                    <p>"When all but one child from the same classroom mysteriously vanish on the same night at exactly
+                        the same time, a community is left questioning who or what is behind their disappearance."</p>
+                </div>
+
+                <!-- Card 10 -->
+                <div class="movie-card">
+                    <img src="28 years later.jpg" alt="28 Years Later">
+                    <h3>28 Years Later</h3>
+                    <p>"It's been almost three decades since the rage virus escaped from a biological weapons
+                        laboratory. Still living in a ruthlessly enforced quarantine, some have found ways to exist amid
+                        the infected. One such group of survivors lives on a small island connected to the mainland by a
+                        single, heavily defended causeway. When one of them decides to venture into the dark heart of
+                        the mainland, he soon discovers a mutation that has spread to not only the infected, but other
+                        survivors as well."</p>
+                </div>
+
+                <!-- Card 11 -->
+                <div class="movie-card">
+                    <img src="mickey 17.jpg" alt="Mickey 17">
+                    <h3>Mickey 17</h3>
+                    <p>"A disposable employee is sent on a human expedition to colonize the ice world Niflheim. After
+                        one iteration dies, a new body is regenerated with most of his memories intact."</p>
+                </div>
+
+                <!-- Card 12 -->
+                <div class="movie-card">
+                    <img src="ballerina.jpg" alt="Ballerina">
+                    <h3>Ballerina</h3>
+                    <p>"Trained in the assassin traditions of the Ruska Roma, Eve Macarro takes on an army of killers as
+                        she seeks revenge against those responsible for the death of her father."</p>
+                </div>
+
+                <!-- Card 13 -->
+                <div class="movie-card">
+                    <img src="companion.jpg" alt="Companion">
+                    <h3>Companion</h3>
+                    <p>"A weekend getaway at a remote cabin turns to chaos when it's revealed that one of the guests --
+                        a subservient android built for human companionship -- has gone haywire."</p>
+                </div>
+
+                <!-- Card 14 -->
+                <div class="movie-card">
+                    <img src="Final_Destination_Bloodlines_(2025)_poster.jpg" alt="Final Destination: Bloodlines">
+                    <h3>Final Destination: Bloodlines</h3>
+                    <p>"Plagued by a violent and recurring nightmare, a college student heads home to track down the one
+                        person who might be able to break the cycle of death and save her family from the grisly demise
+                        that inevitably awaits them all."</p>
+                </div>
+
+                <!-- Card 15 -->
+                <div class="movie-card">
+                    <img src="How_To_Train_Your_Dragon_2025_Poster.jpg" alt="How To Train Your Dragon">
+                    <h3>How To Train Your Dragon</h3>
+                    <p>"On the rugged isle of Berk, a Viking boy named Hiccup defies centuries of tradition by
+                        befriending a dragon named Toothless. However, when an ancient threat emerges that endangers
+                        both species, Hiccup's friendship with Toothless becomes the key to forging a new future.
+                        Together, they must navigate the delicate path toward peace, soaring beyond the boundaries of
+                        their worlds and redefining what it means to be a hero and a leader."</p>
+                </div>
+
+                <!-- Card 16 -->
+                <div class="movie-card">
+                    <img src="jurassic world.jpg" alt="Jurassic World Rebirth">
+                    <h3>Jurassic World Rebirth</h3>
+                    <p>"Zora Bennett leads a team of skilled operatives to the most dangerous place on Earth, an island
+                        research facility for the original Jurassic Park. Their mission is to secure genetic material
+                        from dinosaurs whose DNA can provide life-saving benefits to mankind. As the top-secret
+                        expedition becomes more and more risky, they soon make a sinister, shocking discovery that's
+                        been hidden from the world for decades."</p>
+                </div>
+
+                <!-- Card 17 -->
+                <div class="movie-card">
+                    <img src="nobody 2.jpg" alt="Nobody 2">
+                    <h3>Nobody 2</h3>
+                    <p>"Workaholic assassin Hutch Mansell takes his family on a much-needed vacation to the small
+                        tourist town of Plummerville. However, he soon finds himself in the crosshairs of a corrupt
+                        theme-park operator, a shady sheriff, and a bloodthirsty crime boss."</p>
+                </div>
+
+                <!-- Card 18 -->
+                <div class="movie-card">
+                    <img src="warfare.jpg" alt="Warfare">
+                    <h3>Warfare</h3>
+                    <p>"A platoon of Navy SEALs embark on a dangerous mission in Ramadi, Iraq, with the chaos and
+                        brotherhood of war retold through their memories of the event."</p>
+                </div>
+
+                <!-- Card 19 -->
+                <div class="movie-card">
+                    <img src="highest to lowest.jpg" alt="Highest 2 Lowest">
+                    <h3>Highest 2 Lowest</h3>
+                    <p>"When a powerful music mogul is targeted by a ransom plot, he is forced to fight for his family
+                        and legacy while jammed up in a life-or-death moral dilemma."</p>
+                </div>
+
+                <!-- Card 20 -->
+                <div class="movie-card">
+                    <img src="kpop demon hunters.jpg" alt="KPOP Demon Hunters">
+                    <h3>KPOP Demon Hunters</h3>
+                    <p>"When K-pop superstars Rumi, Mira and Zoey aren't selling out stadiums or topping the Billboard
+                        charts, they're moonlighting as demon hunters to protect their fans from ever-present
+                        supernatural danger."</p>
+                </div>
+
+            </div>
+        </section>
+
+</body>
+
+</html>
